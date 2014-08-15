@@ -11,7 +11,7 @@ script-security 2
 auth-user-pass-verify /etc/openvpn/<%= @config_name %>/auth.rb via-file
 <% end -%>
 
-<% if @config[:auth][:type] == 'pam' -%>
+<% if (@config[:auth][:type] == 'cert_pam') or (@config[:auth][:type] == 'pam') -%>
 plugin /usr/lib/openvpn/openvpn-plugin-auth-pam.so login
 <% end -%>
 
